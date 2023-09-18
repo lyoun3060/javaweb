@@ -10,13 +10,12 @@
         http://mybatis.org/schema/mybatis-spring
         https://mybatis.org/schema/mybatis-spring.xsd">
 
-    <context:component-scan base-package="com.example.demo.sample"/>
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shop?serverTimezone=UTC"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/practice?serverTimezone=UTC"/>
         <property name="username" value="root"/>
-        <property name="password" value="Rlatnwkd123!@"/>
+        <property name="password" value="mysql"/>
         <property name="dataSourceProperties">
             <props>
                 <prop key="cachePrepStmts">true</prop>
@@ -33,4 +32,6 @@
         <property name="mapperLocations" value="classpath:/mapper/**/*.xml"/>
     </bean>
     <mybatis:scan base-package="com.example.demo.mapper"/>
+    <context:component-scan base-package="com.example.demo.config"/>
+    <context:component-scan base-package="com.example.demo.service"/>
 </beans>

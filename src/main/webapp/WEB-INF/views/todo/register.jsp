@@ -1,4 +1,6 @@
 <!doctype html>
+<%@ page contentType="text/html; UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -44,7 +46,7 @@
             Featured
           </div>
           <div class="card-body">
-            <form action="todo/register" method="post">
+            <form action="/todo/register" method="post">
               <div class="input-group mb-3">
                 <span class="input-group-text">Title</span>
                 <input type="text" name="title" class="form-control" placeholder="Title">
@@ -68,6 +70,17 @@
               </div>
 
             </form>
+            <script>
+
+              const serverValidResult = {}
+
+              <c:forEach items="${errors}" var="error">
+                serverValidResult['${error.getField()}']='${error.defaultMessage}'
+              </c:forEach>
+
+              console.log(serverValidResult)
+
+            </script>
           </div>
         </div>
       </div>
